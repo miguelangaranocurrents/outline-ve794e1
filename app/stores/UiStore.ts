@@ -38,7 +38,6 @@ export type RightSidebarPanel = "comments" | "history";
 type PersistedData = Pick<
   UiStore,
   | "languagePromptDismissed"
-  | "rightSidebar"
   | "theme"
   | "sidebarWidth"
   | "sidebarRightWidth"
@@ -174,7 +173,6 @@ class UiStore {
       maxWidth
     );
     this.tocVisible = data.tocVisible;
-    this.rightSidebar = data.rightSidebar ?? null;
     this.theme = data.theme || Theme.System;
     Storage.set(THEME_STORAGE_KEY, this.theme);
 
@@ -571,7 +569,6 @@ class UiStore {
       sidebarWidth: this.sidebarWidth,
       sidebarRightWidth: this.sidebarRightWidth,
       languagePromptDismissed: this.languagePromptDismissed,
-      rightSidebar: this.rightSidebar,
       theme: this.theme,
     };
   }
